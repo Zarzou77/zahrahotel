@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact{% endblock %}
+
+{% block body %}
+<body style= "background-color:#D7CCC8">
+<h1 class="m-3 text-center"> Besoin de plus d'informations !! Contactez-nous</h1>
+
+<form  class="m-3">
+    <div class="row">
+        <div class="col-6">
+            <div class="mb-3">
+                <label for="inputEmail" class="form-label">Adresse email</label>
+                <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text">Votre e-mail ne sera pas diffusé.</div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="mb-3">
+                <label for="nom" class="form-label">Nom</label>
+                <input type="text" class="form-control" id="nom">
+            </div>
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="commentaire">Commentaire</label>
+        <textarea class="form-control" placeholder="Laissez-nous un commentaire !" id="commentaire" style="height: 100px"></textarea>
+    </div>
+      
+   
+    <button type="submit" class="mb3 btn btn-secondary">Envoyer</button>
+</form>
+</body>
+
+{% endblock %}

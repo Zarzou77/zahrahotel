@@ -1,0 +1,88 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HotelController!
+{% endblock %}
+
+{% block body %}
+<body style= "background-color:#D7CCC8">
+<h1 class="text-center">Nos chambres </h1>
+
+	{% extends 'base.html.twig' %}
+
+{% block title %}Accueil
+{% endblock %}
+
+{% block body %}
+
+	<div class="row">
+		{% for item in chambre %}
+			<div class="col-md-4">
+				<div class="card" style="width: 18rem;">
+					<img src="{{ item.photo }}" class="card-img-top">
+					<div class="card-body">
+						<h5 class="card-title">{{ item.titre }}</h5>
+						<p class="card-text">{{ item.description|raw }}</p>
+						<p class="card-text">{{ item.prix_journalier / 100|number_format(2) }}€</p>
+						<a href="{{ path('cart_add', {id: item.id}) }}" class="btn btn-primary">Ajouter au panier</a>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+
+{% endblock %}
+
+
+	</div>
+	<div class="col-md-6">
+		<div class="card mb-3" style="width: 18rem;">
+			<h3 class="card-header">{{ chambre.titre }}</h3>
+			<p class="card-text">{{ chambre.description_courte }}</p>
+			<img src="{{ chambre.photo }}" alt="Image de la chambre">
+			<div class="card-body">
+				<p class="card-text">{{ chambre.description_longue }}</p>
+				<p class="card-text text-end fw-bold">{{ chambre.prixJournalier }}€/j</p>
+			</div>
+		</div>
+	
+
+		{{ form_start(form) }}
+
+		{{ form_row(form.dateHeureDepart) }}
+		{{ form_row(form.dateHeureFin) }}
+
+		<button type="submit" class="btn btn-secondary">Réserver Votre chambre</button>
+
+		{{ form_end(form) }}
+
+	</div>
+
+	<div class="col-md-6">
+		<div class="card mb-3" style="width: 18rem;">
+			<h3 class="card-header">{{ chambre.titre }}</h3>
+			<p class="card-text">{{ chambre.description_courte }}</p>
+			<img src="{{ chambre.photo }}" alt="Image de la chambre">
+			<div class="card-body">
+				<p class="card-text">{{ chambre.description_longue }}</p>
+				<p class="card-text text-end fw-bold">{{ chambre.prixJournalier }}€/j</p>
+			</div>
+		</div>
+	
+
+		{{ form_start(form) }}
+
+		{{ form_row(form.dateHeureDepart) }}
+		{{ form_row(form.dateHeureFin) }}
+
+		<button type="submit" class="btn btn-secondary">Réserver Votre chambre</button>
+
+		{{ form_end(form) }}
+	
+	</div>
+	
+
+
+
+</body>
+
+{% endblock %}
